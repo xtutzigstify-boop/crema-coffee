@@ -4,17 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Крема — кофейня</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:opsz,wght@9..144,600;9..144,800&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:opsz,wght@9..144,600;9..144,800&family=JetBrains+Mono:wght@400;600&family=Pacifico&display=swap">
 <style>
-:root{--bg:#f6ecdc;--paper:#fffaf1;--ink:#2a1810;--mut:#7d6552;--ac:#c47a2c;--ac2:#8a4b21;--ok:#4f7a4a;--er:#b83b2e;--line:rgba(60,35,20,.14);--sh:0 10px 30px rgba(80,45,20,.14);--tint:#f1dcc0;--ff:'Fraunces',Georgia,serif}
-[data-theme=dark]{--bg:#17100c;--paper:#241913;--ink:#f4e8d6;--mut:#b59d86;--ac:#e29a4a;--ac2:#f0b877;--ok:#8fcf86;--er:#ff8a78;--line:rgba(255,230,200,.14);--sh:0 10px 30px rgba(0,0,0,.45);--tint:#3a2619}
+:root{--bg:#e9d6b8;--paper:#fcf4e5;--ink:#2a1810;--mut:#6c503b;--ac:#c47a2c;--ac2:#8a4b21;--ok:#4f7a4a;--er:#b83b2e;--line:rgba(60,35,20,.16);--sh:0 10px 30px rgba(80,45,20,.16);--tint:#dcc3a0;--ff:'Fraunces',Georgia,serif;--bean:#fffaf0;--beanop:.8;--steam:rgba(255,255,255,.98);--steamsh:rgba(120,70,35,.35);--glow:rgba(150,92,48,.38)}
+[data-theme=dark]{--bg:#17100c;--paper:#241913;--ink:#f4e8d6;--mut:#b59d86;--ac:#e29a4a;--ac2:#f0b877;--ok:#8fcf86;--er:#ff8a78;--line:rgba(255,230,200,.14);--sh:0 10px 30px rgba(0,0,0,.45);--tint:#3a2619;--bean:#f0b877;--beanop:.1;--steam:rgba(255,238,220,.75);--steamsh:rgba(0,0,0,0);--glow:rgba(226,154,74,.2)}
 *{box-sizing:border-box;margin:0}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--ink);font:400 16px/1.5 'DM Sans',system-ui,sans-serif;min-height:100vh;overflow-x:hidden;transition:background .5s,color .4s}
 button,input,select{font:inherit;color:inherit}button{cursor:pointer}
 .mono{font-family:'JetBrains Mono',ui-monospace,monospace}
 .bgb{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
-.bgb i{position:absolute;width:26px;height:38px;border-radius:50%;background:var(--ac2);opacity:.09;animation:flt var(--d) ease-in-out infinite}
+.bgb i{position:absolute;width:26px;height:38px;border-radius:50%;background:var(--bean);opacity:var(--beanop);box-shadow:0 3px 8px rgba(90,55,30,.16);animation:flt var(--d) ease-in-out infinite}
 .bgb i::after{content:"";position:absolute;left:50%;top:6%;bottom:6%;width:3px;margin-left:-1.5px;border-radius:3px;background:var(--bg)}
 @keyframes flt{50%{transform:translateY(-34px) rotate(25deg)}}
 #banner{position:sticky;top:0;z-index:40;display:flex;gap:12px;align-items:center;justify-content:center;flex-wrap:wrap;padding:10px 16px;background:#f2c14e;color:#2a1810;font-weight:500;font-size:14px;animation:dn .4s}
@@ -23,8 +23,9 @@ button,input,select{font:inherit;color:inherit}button{cursor:pointer}
 header{position:sticky;top:0;z-index:30;backdrop-filter:blur(14px);background:color-mix(in srgb,var(--bg) 82%,transparent);border-bottom:1px solid var(--line)}
 #banner:not([hidden])~header{top:44px}
 .hin{max-width:1180px;margin:0 auto;padding:10px 18px;display:flex;align-items:center;gap:14px}
-.logo{display:flex;align-items:center;gap:10px;font:800 26px var(--ff);letter-spacing:.01em;margin-right:auto}
+.logo{display:flex;align-items:center;gap:10px;margin-right:auto}
 .logo svg{width:36px;height:36px}
+.logo .wm{font:400 32px/1 'Pacifico','Brush Script MT',cursive;color:var(--ac2);letter-spacing:.01em;padding-top:4px}
 .srch{display:flex;background:var(--paper);border:1px solid var(--line);border-radius:30px;overflow:hidden}
 .srch input{border:0;background:none;padding:8px 14px;width:150px;outline:0}
 .srch button{border:0;background:var(--ac);color:#fff;padding:0 14px;font-weight:700}
@@ -46,9 +47,14 @@ main{position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:0 18px 9
 .stat{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:10px 16px;min-width:130px;box-shadow:var(--sh)}
 .stat small{display:block;color:var(--mut);font-size:12px;text-transform:uppercase;letter-spacing:.07em}.stat b{font:700 20px var(--ff)}
 .stat b.tick{animation:tk .6s}@keyframes tk{40%{color:var(--ac);transform:scale(1.15)}}
-.hcup{position:relative;display:grid;place-items:center}.hcup::before{content:"";position:absolute;width:86%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,var(--tint),transparent 70%)}
-.hcup svg{position:relative;width:min(340px,100%);filter:drop-shadow(0 18px 20px rgba(60,30,10,.25));animation:hv 5s ease-in-out infinite}
+.hcup{position:relative;display:grid;place-items:center}.hcup::before{content:"";position:absolute;width:92%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,var(--glow),transparent 68%)}
 @keyframes hv{50%{transform:translateY(-8px) rotate(-1.5deg)}}
+.hero-art{position:relative;width:min(520px,100%);container-type:inline-size}
+.ha-in{position:relative;padding-top:30cqw;animation:hv 7s ease-in-out infinite}
+.ha-in img{display:block;width:100%;height:auto;filter:drop-shadow(0 20px 22px rgba(30,15,5,.4))}
+.steam3{position:absolute;left:42.6cqw;top:37cqw;width:0;height:0;pointer-events:none}
+.steam3 i{position:absolute;left:0;bottom:0;width:9cqw;height:19cqw;margin-left:-4.5cqw;border-radius:50%;background:radial-gradient(closest-side,var(--steam) 35%,transparent);filter:blur(1.3cqw) drop-shadow(0 0 1.2cqw var(--steamsh));opacity:0;transform-origin:50% 100%;animation:rise 7s cubic-bezier(.45,.1,.45,1) infinite;animation-delay:var(--dl)}
+@keyframes rise{0%{opacity:0;transform:translate(var(--x0),2cqw) scale(.5)}18%{opacity:1}60%{opacity:.65}100%{opacity:0;transform:translate(var(--x1),-24cqw) scale(1.4,1.7) rotate(var(--r))}}
 .steam path{fill:none;stroke:var(--mut);stroke-width:3;stroke-linecap:round;stroke-dasharray:34;opacity:0;animation:st 2.6s ease-in-out infinite}
 .steam path:nth-child(2){animation-delay:.6s}.steam path:nth-child(3){animation-delay:1.2s}
 @keyframes st{0%{stroke-dashoffset:34;opacity:0;transform:translateY(8px)}40%{opacity:.8}100%{stroke-dashoffset:-34;opacity:0;transform:translateY(-10px)}}
@@ -74,13 +80,12 @@ main{position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:0 18px 9
 .card{background:var(--paper);border:1px solid var(--line);border-radius:26px;padding:16px;display:flex;flex-direction:column;gap:10px;box-shadow:var(--sh);animation:up .6s both;transition:transform .35s,box-shadow .35s;position:relative}
 .card:hover{transform:translateY(-6px) rotate(-.4deg)}
 @keyframes up{from{opacity:0;transform:translateY(28px) scale(.97)}}
-.card.fl-up{animation:fu 1s}.card.fl-dn{animation:fd 1s}
-@keyframes fu{30%{box-shadow:0 0 0 4px rgba(63,207,110,.55)}}@keyframes fd{30%{box-shadow:0 0 0 4px rgba(255,138,120,.6)}}
-.art{height:140px;border-radius:20px;background:radial-gradient(circle at 50% 60%,var(--tint),transparent 75%);display:grid;place-items:center;position:relative}
+.art{aspect-ratio:4/3;border-radius:20px;background:var(--tint);display:grid;place-items:center;position:relative;overflow:hidden}
+.art img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.3,1,.4,1)}.card:hover .art img{transform:scale(1.07)}
 .art svg{height:120px;transition:transform .5s cubic-bezier(.3,1.6,.5,1)}.card:hover .art svg,.card:hover .art .em{transform:scale(1.12) rotate(-4deg)}
 .art .em{font-size:84px;transition:transform .5s cubic-bezier(.3,1.6,.5,1);animation:hv 5s ease-in-out infinite}
 .tg{position:absolute;left:8px;top:8px;background:var(--ink);color:var(--bg);font-size:11px;font-weight:700;border-radius:20px;padding:2px 10px;letter-spacing:.04em}
-.code{position:absolute;right:10px;top:8px;font:600 12px 'JetBrains Mono',monospace;color:var(--mut)}
+.code{position:absolute;right:8px;top:8px;font:600 12px 'JetBrains Mono',monospace;color:#fff;background:rgba(0,0,0,.45);border-radius:20px;padding:2px 9px}
 .card h3{font:800 22px/1.15 var(--ff)}.card .ds{color:var(--mut);font-size:14px;flex:1}
 .chips{display:flex;gap:6px;flex-wrap:wrap}.chips span{font-size:12px;background:var(--bg);border-radius:20px;padding:2px 10px;color:var(--mut)}
 .seg{display:flex;background:var(--bg);border-radius:30px;padding:3px}.seg button{flex:1;border:0;background:none;border-radius:24px;padding:4px;font-size:13px;font-weight:600;color:var(--mut);transition:.25s}.seg button.on{background:var(--paper);color:var(--ink);box-shadow:0 2px 8px rgba(0,0,0,.15)}
@@ -100,7 +105,7 @@ footer{text-align:center;color:var(--mut);font-size:13px;margin-top:30px}
 .dh{padding:16px 18px;border-bottom:1px solid var(--line);display:flex;gap:10px;align-items:center}.dh .tabs{flex:1}.dh .tabs button{flex:1}
 .pane{flex:1;overflow:auto;padding:16px 18px;display:none}.pane.on{display:block}
 .emp{text-align:center;color:var(--mut);padding:40px 10px}.emp b{display:block;font:800 20px var(--ff);color:var(--ink);margin:6px 0}.emp .e{font-size:52px;animation:hv 4s infinite}
-.ln{display:flex;gap:12px;align-items:center;padding:10px 0;border-bottom:1px dashed var(--line);animation:fi .4s}.ln .ic{width:46px;height:46px;border-radius:14px;background:var(--tint);display:grid;place-items:center;font-size:24px;flex:none}.ln .ic svg{height:36px}
+.ln{display:flex;gap:12px;align-items:center;padding:10px 0;border-bottom:1px dashed var(--line);animation:fi .4s}.ln .ic{width:46px;height:46px;border-radius:14px;background:var(--tint);display:grid;place-items:center;font-size:24px;flex:none;overflow:hidden}.ln .ic svg{height:36px}.ln .ic img{width:100%;height:100%;object-fit:cover}
 .ln .nm{flex:1;min-width:0}.ln .nm b{display:block}.ln .nm small{color:var(--mut)}
 .qty{display:flex;align-items:center;gap:8px}.qty button{width:28px;height:28px;border-radius:50%;border:1px solid var(--line);background:var(--bg);font-weight:700}.qty button:hover{background:var(--ac);color:#fff}
 .sum{padding:14px 18px;border-top:1px solid var(--line);display:grid;gap:10px;background:var(--bg)}
@@ -129,7 +134,7 @@ footer{text-align:center;color:var(--mut);font-size:13px;margin-top:30px}
 .t{background:var(--ink);color:var(--bg);padding:11px 18px;border-radius:16px;box-shadow:var(--sh);animation:ti .5s cubic-bezier(.3,1.5,.5,1);max-width:340px;font-size:14px;pointer-events:auto}.t.ok{border-left:5px solid #3fcf6e}.t.er{border-left:5px solid var(--er)}.t.out{animation:to .4s forwards}
 @keyframes ti{from{opacity:0;transform:translateX(60px)}}@keyframes to{to{opacity:0;transform:translateX(60px)}}
 .fly{position:fixed;z-index:100;width:18px;height:26px;border-radius:50%;background:var(--ac2);pointer-events:none}
-@media(max-width:820px){.hero{grid-template-columns:1fr}.hcup{order:-1}.hcup svg{width:210px}.srch input{width:96px}.hide-s{display:none}}
+@media(max-width:820px){.hero{grid-template-columns:1fr}.hcup{order:-1}.hero-art{width:min(340px,100%)}.srch input{width:96px}.hide-s{display:none}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
@@ -137,7 +142,7 @@ footer{text-align:center;color:var(--mut);font-size:13px;margin-top:30px}
 <div class="bgb" id="bgb"></div>
 <div id="banner" hidden><span id="bt"></span><button id="bretry">Повторить</button></div>
 <header><div class="hin">
- <div class="logo"><svg viewBox="0 0 48 48"><path d="M8 18h28v10a14 14 0 0 1-14 14h0A14 14 0 0 1 8 28z" fill="var(--ac)"/><path d="M36 21h3a5 5 0 0 1 0 10h-4" fill="none" stroke="var(--ac)" stroke-width="3"/><path d="M16 12c-3-4 3-5 0-9M24 12c-3-4 3-5 0-9M32 12c-3-4 3-5 0-9" fill="none" stroke="var(--mut)" stroke-width="2.4" stroke-linecap="round"/></svg>Крема</div>
+ <div class="logo"><svg viewBox="0 0 48 48"><path d="M8 18h28v10a14 14 0 0 1-14 14h0A14 14 0 0 1 8 28z" fill="var(--ac)"/><path d="M36 21h3a5 5 0 0 1 0 10h-4" fill="none" stroke="var(--ac)" stroke-width="3"/><path d="M16 12c-3-4 3-5 0-9M24 12c-3-4 3-5 0-9M32 12c-3-4 3-5 0-9" fill="none" stroke="var(--mut)" stroke-width="2.4" stroke-linecap="round"/></svg><span class="wm">Crema</span></div>
  <form class="srch hide-s" id="sf" title="Код позиции — маленькое число на карточке"><input id="si" type="number" min="1" placeholder="Код позиции №" aria-label="Код позиции"><button>Найти</button></form>
  <div class="pill" id="live"><span class="dot wait"></span><span id="lt">Подключение…</span></div>
  <button class="ib" id="th" aria-label="Тема">🌙</button>
@@ -155,7 +160,12 @@ footer{text-align:center;color:var(--mut);font-size:13px;margin-top:30px}
     <div class="stat"><small>В зале</small><b id="online">—</b></div>
    </div>
   </div>
-  <div class="hcup" id="hc"></div>
+  <div class="hcup" id="hc"><div class="hero-art"><div class="ha-in">
+    <div class="steam3" aria-hidden="true">
+     <i style="--x0:-6cqw;--x1:-12cqw;--r:-14deg;--dl:0s"></i><i style="--x0:3cqw;--x1:9cqw;--r:12deg;--dl:-1s"></i><i style="--x0:-1cqw;--x1:-4cqw;--r:-8deg;--dl:-2s"></i><i style="--x0:7cqw;--x1:13cqw;--r:16deg;--dl:-3s"></i><i style="--x0:-9cqw;--x1:-6cqw;--r:10deg;--dl:-4s"></i><i style="--x0:1cqw;--x1:6cqw;--r:-12deg;--dl:-5s"></i><i style="--x0:5cqw;--x1:-2cqw;--r:8deg;--dl:-6s"></i>
+    </div>
+    <img src="/img/hero.webp" alt="Капучино с круассаном и кофейными зёрнами">
+   </div></div></div>
  </section>
  <div class="rib"><div id="rib"></div></div>
 
@@ -263,14 +273,15 @@ function explain(e,url=''){
 
 /* ============ Рисунки напитков ============ */
 const STEAM='<g class="steam"><path d="M46 36c-6-8 6-12 0-22"/><path d="M60 38c-6-8 6-12 0-22"/><path d="M74 36c-6-8 6-12 0-22"/></g>';
+const PHOTO={1:'espresso',2:'cappuccino',3:'raf-lavender',4:'cold-brew',5:'croissant'};
+function photo(it){const src=it.img||(PHOTO[it.id]?'/img/'+PHOTO[it.id]+'.jpg':'');return src?`<img src="${src}" alt="${String(it.name).replace(/"/g,'&quot;')}" loading="lazy">`:art(it)}
 function art(it){
   if(it.type==='pastry')return`<div class="em">${it.emoji}</div>`;
   if(it.type==='cold')return`<svg viewBox="0 0 120 120"><path d="M34 26h52l-6 78a8 8 0 0 1-8 7H48a8 8 0 0 1-8-7z" fill="rgba(255,255,255,.4)" stroke="var(--ink)" stroke-width="2.5"/><path d="M38 50h44l-4 54a6 6 0 0 1-6 5H48a6 6 0 0 1-6-5z" fill="${it.color}"/><rect x="47" y="58" width="15" height="15" rx="3" fill="#fff" opacity=".5" transform="rotate(12 55 66)"/><rect x="64" y="76" width="13" height="13" rx="3" fill="#fff" opacity=".4" transform="rotate(-10 70 82)"/><rect x="70" y="6" width="7" height="62" rx="3.5" fill="#e0603e" transform="rotate(14 74 38)"/></svg>`;
   return`<svg viewBox="0 0 120 120">${STEAM}<ellipse cx="60" cy="106" rx="46" ry="8" fill="rgba(0,0,0,.14)"/><path d="M26 52h68v22a34 34 0 0 1-34 34 34 34 0 0 1-34-34z" fill="#fffaf1" stroke="var(--ink)" stroke-width="2.5"/><path d="M94 58h8a10 10 0 0 1 0 20h-10" fill="none" stroke="var(--ink)" stroke-width="2.5"/><ellipse cx="60" cy="52" rx="34" ry="8" fill="${it.color}" stroke="var(--ink)" stroke-width="2.5"/><ellipse cx="60" cy="52" rx="20" ry="4.5" fill="${it.foam}"/><path d="M60 54c-9-5-9-8-5-8 2 0 4 1 5 3 1-2 3-3 5-3 4 0 4 3-5 8z" fill="${it.color}" opacity=".7" transform="scale(.7) translate(26 20)"/></svg>`;
 }
-$('#hc').innerHTML=art({type:'hot',color:'#5a3320',foam:'#f3e3cc'});
 $('#rib').textContent=('★ Свежая обжарка каждый день ★ Овсяное молоко без доплаты ★ Заказ — прямо с телефона ★ Бариста с 7:00 ').repeat(8);
-for(let i=0;i<16;i++){const b=el('i');b.style.cssText=`left:${Math.random()*100}%;top:${Math.random()*100}%;--d:${5+Math.random()*6}s;animation-delay:-${Math.random()*6}s;transform:rotate(${Math.random()*90}deg) scale(${.6+Math.random()})`;$('#bgb').append(b)}
+for(let i=0;i<22;i++){const b=el('i');b.style.cssText=`left:${Math.random()*100}%;top:${Math.random()*100}%;--d:${5+Math.random()*6}s;animation-delay:-${Math.random()*6}s;transform:rotate(${Math.random()*90}deg) scale(${.6+Math.random()})`;$('#bgb').append(b)}
 
 /* ============ UI-помощники ============ */
 function toast(msg,type=''){const t=el('div','t '+type,msg);$('#ts').append(t);setTimeout(()=>{t.classList.add('out');setTimeout(()=>t.remove(),400)},3800)}
@@ -338,7 +349,7 @@ function renderMenu(){
   const m=$('#menu');m.innerHTML='';
   S.items.filter(i=>S.cat==='Все'||i.category===S.cat).forEach((it,n)=>{
     const c=el('div','card'+(it.stock<1?' out':''));c.dataset.id=it.id;c.dataset.size='M';c.style.animationDelay=n*70+'ms';
-    c.innerHTML=`<div class="art">${art(it)}<span class="tg"></span><span class="code"></span></div><h3></h3><div class="ds"></div><div class="chips"></div><div class="seg" ${it.sizes?'':'hidden'}></div><div class="stk"><span>Осталось порций</span><b class="sn"></b></div><div class="sb"><i></i></div><div class="buy"><div class="pr"></div><button class="btn add"></button></div>`;
+    c.innerHTML=`<div class="art">${photo(it)}<span class="tg"></span><span class="code"></span></div><h3></h3><div class="ds"></div><div class="chips"></div><div class="seg" ${it.sizes?'':'hidden'}></div><div class="stk"><span>Осталось порций</span><b class="sn"></b></div><div class="sb"><i></i></div><div class="buy"><div class="pr"></div><button class="btn add"></button></div>`;
     $('.tg',c).textContent=it.tag;$('.code',c).textContent='№'+it.id;$('h3',c).textContent=it.name;$('.ds',c).textContent=it.desc;
     const ch=$('.chips',c);[`⏱ ${it.time} мин`,`🔥 ${it.kcal} ккал`,it.category].forEach(t=>ch.append(el('span','',t)));
     if(it.sizes)['S','M','L'].forEach(s=>{const b=el('button',s==='M'?'on':'',s+' · '+SZ[s]);b.onclick=()=>{c.dataset.size=s;$$('button',$('.seg',c)).forEach(x=>x.classList.toggle('on',x===b));$('.pr',c).textContent=money(priceFor(it,s))};$('.seg',c).append(b)});
@@ -348,7 +359,7 @@ function renderMenu(){
   });
 }
 function paintStock(c,it){$('.sn',c).textContent=it.stock+' из '+it.max;const i=$('.sb i',c);i.style.width=it.stock/it.max*100+'%';i.classList.toggle('low',it.stock<=2);c.classList.toggle('out',it.stock<1);const b=$('.add',c);b.disabled=it.stock<1;b.textContent=it.stock<1?'Закончилось':'В корзину +'}
-function setStock(id,n){const it=S.items.find(i=>i.id===id);if(!it||it.stock===n)return;const up=n>it.stock;it.stock=n;const c=$(`.card[data-id="${id}"]`);if(!c)return;paintStock(c,it);c.classList.remove('fl-up','fl-dn');void c.offsetWidth;c.classList.add(up?'fl-up':'fl-dn')}
+function setStock(id,n){const it=S.items.find(i=>i.id===id);if(!it||it.stock===n)return;it.stock=n;const c=$(`.card[data-id="${id}"]`);if(!c)return;paintStock(c,it)}
 $('#tabs').onclick=e=>{const b=e.target.closest('button');if(!b)return;S.cat=b.dataset.c;$$('#tabs button').forEach(x=>x.classList.toggle('on',x===b));if(S.items.length)renderMenu()};
 $('#rf').onclick=()=>loadMenu({reason:'button'});
 $('#cancel').onclick=()=>inflight.menu&&inflight.menu.abort(new DOMException('user','AbortError'));
@@ -360,7 +371,7 @@ async function findItem(id){
   catch(e){if(e.kind==='superseded')return;errModal(e,'/api/items/'+id,()=>findItem(id))}
 }
 function itemModal(it){
-  const w=el('div');w.innerHTML=`<div class="art" style="height:160px;margin-bottom:12px">${art(it)}</div><h3 style="font:800 28px var(--ff)"></h3><p class="meta" style="margin:6px 0 12px"></p><div class="chips"></div><div class="buy" style="margin-top:16px"><div class="pr"></div><button class="btn"></button></div>`;
+  const w=el('div');w.innerHTML=`<div class="art" style="margin-bottom:12px">${photo(it)}</div><h3 style="font:800 28px var(--ff)"></h3><p class="meta" style="margin:6px 0 12px"></p><div class="chips"></div><div class="buy" style="margin-top:16px"><div class="pr"></div><button class="btn"></button></div>`;
   $('h3',w).textContent=it.name;$('.meta',w).textContent=it.desc;[`Код №${it.id}`,`⏱ ${it.time} мин`,`🔥 ${it.kcal} ккал`,`В наличии: ${it.stock}`].forEach(t=>$('.chips',w).append(el('span','',t)));
   $('.pr',w).textContent=money(priceFor(it,'M'));const b=$('.btn',w);b.textContent=it.stock?'В корзину +':'Закончилось';b.disabled=!it.stock;b.onclick=()=>{addToCart(it.id,'M',b);closeModal()};openModal(w);
 }
@@ -383,7 +394,7 @@ function renderCart(){
   const box=$('#lines');box.innerHTML='';let total=0,n=0;
   S.cart.forEach((l,idx)=>{
     const it=S.items.find(i=>i.id===l.id)||{name:'Позиция №'+l.id,price:0,type:'pastry',emoji:'☕'},p=it.price?priceFor(it,l.size):0;total+=p*l.qty;n+=l.qty;
-    const r=el('div','ln');r.innerHTML=`<div class="ic">${it.type==='pastry'?(it.emoji||'☕'):art(it).replace(/<g class="steam">.*?<\/g>/,'')}</div><div class="nm"><b></b><small></small></div><div class="qty"><button>−</button><b></b><button>+</button></div><b class="mono" style="min-width:70px;text-align:right"></b>`;
+    const r=el('div','ln');r.innerHTML=`<div class="ic">${it.id&&PHOTO[l.id]?photo({...it,id:l.id}):(it.emoji||'☕')}</div><div class="nm"><b></b><small></small></div><div class="qty"><button>−</button><b></b><button>+</button></div><b class="mono" style="min-width:70px;text-align:right"></b>`;
     $('.nm b',r).textContent=it.name;$('.nm small',r).textContent=(l.size?SZ[l.size]+' · ':'')+money(p);
     const [m,pl]=$$('.qty button',r);$('.qty b',r).textContent=l.qty;r.lastChild.textContent=money(p*l.qty);
     m.onclick=()=>{l.qty--;if(l.qty<1)S.cart.splice(idx,1);saveCart();renderCart()};

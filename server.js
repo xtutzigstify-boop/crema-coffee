@@ -11,11 +11,11 @@ const wss = new WebSocketServer({ server }); // WebSocket на том же по�
 
 /* ---------- Данные (в памяти) ---------- */
 const items = [
-  { id: 1, name: 'Эспрессо', category: 'Кофе', type: 'hot', price: 900, sizes: false, stock: 12, max: 12, time: 2, kcal: 5, color: '#4a2a18', foam: '#c98b4f', tag: 'Классика', desc: 'Двойной шот на смеси арабики и робусты. Плотное тело, горьковатый шоколад и долгое послевкусие.' },
-  { id: 2, name: 'Капучино', category: 'Кофе', type: 'hot', price: 1400, sizes: true, stock: 10, max: 10, time: 4, kcal: 120, color: '#8a5a3a', foam: '#f3e3cc', tag: 'Хит', desc: 'Эспрессо, бархатное молоко и плотная пенка. Рисуем сердечко — просто так.' },
-  { id: 3, name: 'Раф «Лаванда»', category: 'Кофе', type: 'hot', price: 1700, sizes: true, stock: 8, max: 8, time: 5, kcal: 210, color: '#b89678', foam: '#f6ecdf', tag: 'Сезонное', desc: 'Сливки, ванильный сахар и капля лавандового сиропа. Для тех, кто любит помягче.' },
-  { id: 4, name: 'Колд брю', category: 'Холодное', type: 'cold', price: 1600, sizes: true, stock: 9, max: 9, time: 1, kcal: 15, color: '#2d1a12', foam: '#9c6b43', tag: 'Освежает', desc: 'Настаивается 16 часов в холодной воде. Мягкий, сладковатый, с цитрусовой ноткой и кубиками льда.' },
-  { id: 5, name: 'Круассан миндальный', category: 'Выпечка', type: 'pastry', price: 1100, sizes: false, stock: 8, max: 8, time: 1, kcal: 340, color: '#d9a05b', foam: '#f3e3cc', emoji: '🥐', tag: 'Свежий', desc: 'Слоёный, с миндальным кремом и хрустящей корочкой. Выпекаем каждое утро в 6:30.' }
+  { id: 1, img: '/img/espresso.jpg', name: 'Эспрессо', category: 'Кофе', type: 'hot', price: 900, sizes: false, stock: 12, max: 12, time: 2, kcal: 5, color: '#4a2a18', foam: '#c98b4f', tag: 'Классика', desc: 'Двойной шот на смеси арабики и робусты. Плотное тело, горьковатый шоколад и долгое послевкусие.' },
+  { id: 2, img: '/img/cappuccino.jpg', name: 'Капучино', category: 'Кофе', type: 'hot', price: 1400, sizes: true, stock: 10, max: 10, time: 4, kcal: 120, color: '#8a5a3a', foam: '#f3e3cc', tag: 'Хит', desc: 'Эспрессо, бархатное молоко и плотная пенка. Рисуем сердечко — просто так.' },
+  { id: 3, img: '/img/raf-lavender.jpg', name: 'Раф «Лаванда»', category: 'Кофе', type: 'hot', price: 1700, sizes: true, stock: 8, max: 8, time: 5, kcal: 210, color: '#b89678', foam: '#f6ecdf', tag: 'Сезонное', desc: 'Сливки, ванильный сахар и капля лавандового сиропа. Для тех, кто любит помягче.' },
+  { id: 4, img: '/img/cold-brew.jpg', name: 'Колд брю', category: 'Холодное', type: 'cold', price: 1600, sizes: true, stock: 9, max: 9, time: 1, kcal: 15, color: '#2d1a12', foam: '#9c6b43', tag: 'Освежает', desc: 'Настаивается 16 часов в холодной воде. Мягкий, сладковатый, с цитрусовой ноткой и кубиками льда.' },
+  { id: 5, img: '/img/croissant.jpg', name: 'Круассан миндальный', category: 'Выпечка', type: 'pastry', price: 1100, sizes: false, stock: 8, max: 8, time: 1, kcal: 340, color: '#d9a05b', foam: '#f3e3cc', emoji: '🥐', tag: 'Свежий', desc: 'Слоёный, с миндальным кремом и хрустящей корочкой. Выпекаем каждое утро в 6:30.' }
 ];
 const SIZES = { S: 0.85, M: 1, L: 1.25 };
 const orders = [];
